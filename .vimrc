@@ -7,7 +7,6 @@
 "Pathogen
 "}}}
 
-:source ~/.vim/computer.vim
 
 "ReadME {{{
 " Put cursor under a word and press K to bring up help for it
@@ -61,43 +60,6 @@ noremap : <nop>
 inoremap jk <ESC>l
 set showcmd
 
-"Quick File Edit Commands {{{
-nnoremap <leader>ev :e $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-
-"}}}
-"convenient shortcuts{{{
-noremap <C-s> <ESC>:w<CR>
-"}}}
-
-"Searching  {{{
-nnoremap <silent> <leader>/ :noh<cr>
-
-"Search related
-set ignorecase
-set smartcase
-set incsearch
-set showmatch
-
-"Highlight search results. :noh to disable
-set hlsearch
-"}}}
-"Window Management {{{
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-h> <C-W>h
-noremap <C-l> <C-W>l
-"}}}
-"Buffers {{{
-nnoremap <leader>bd :bd<cr>
-nnoremap <leader>bb :CtrlPBuffer<cr>
-"}}}
-"tabs {{{
-nnoremap <leader>tj :tabNext<cr>
-nnoremap <leader>tk :tabprevious<cr>
-nnoremap <leader>td :tabclose<cr>
-"}}}
-
 "Vim Basic {{{
 "comment based file control. see bottom
 set nocompatible
@@ -135,7 +97,44 @@ set expandtab
 set list
 set listchars=nbsp:¬,tab:»·,trail:·   
 
-set guifont=Consolas:h11:cANSI
+set guifont=Consolas:h14:cANSI
+"}}}
+
+"Quick File Edit Commands {{{
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+"}}}
+"convenient shortcuts{{{
+noremap <C-s> <ESC>:w<CR>
+"}}}
+
+"Searching  {{{
+nnoremap <silent> <leader>/ :noh<cr>
+
+"Search related
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+
+"Highlight search results. :noh to disable
+set hlsearch
+"}}}
+"Window Management {{{
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
+"}}}
+"Buffers {{{
+nnoremap <leader>bd :bd<cr>
+nnoremap <leader>bb :CtrlPBuffer<cr>
+"}}}
+"tabs {{{
+nnoremap <leader>tj :tabNext<cr>
+nnoremap <leader>tk :tabprevious<cr>
+nnoremap <leader>td :tabclose<cr>
 "}}}
 
 
@@ -198,4 +197,15 @@ set directory=~/.vim/.swp//
 
 "}}}
 
+"Help: Variables and  {{{
+"let variable=value
+"set option=value
+"echo variable
+"echo &option
+    "use case, you want to put the current font settings in to buffer
+    ":put =&guifont
+"}}}
+
+"Chane any previously set settings based on the computer
+:source ~/.vim/computer.vim
 " vim:foldmethod=marker:foldlevel=0
