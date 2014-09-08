@@ -97,7 +97,7 @@ set expandtab
 set list
 set listchars=nbsp:¬,tab:»·,trail:·   
 
-set guifont=Consolas:h14:cANSI
+"set guifont=Consolas:h14:cANSI
 "}}}
 
 "Quick File Edit Commands {{{
@@ -107,6 +107,12 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 "}}}
 "convenient shortcuts{{{
 noremap <C-s> <ESC>:w<CR>
+"}}}
+"Movement changes {{{
+nnoremap j gj
+nnoremap k gk
+nnoremap $ g$
+nnoremap 0 g0
 "}}}
 
 "Searching  {{{
@@ -137,6 +143,15 @@ nnoremap <leader>tk :tabprevious<cr>
 nnoremap <leader>td :tabclose<cr>
 "}}}
 
+"vim-airline {{{
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme             = 'powerlineish'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+"}}}
 
 " Easy Motion Mappings {{{
 let g:EasyMotion_do_mapping = 1
