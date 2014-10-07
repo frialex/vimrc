@@ -7,8 +7,14 @@
 "Pathogen
 "}}}
 
+set guioptions-=T
+set guioptions-=m
+"set guifont=Consolas:h14:cANSI
 
-"ReadME {{{
+"Would the javascript plugin work with this?
+filetype plugin on
+
+"ReadME {{{1
 " Put cursor under a word and press K to bring up help for it
     " if it doesn't work :setlocal keywordprg=:help
 "
@@ -17,9 +23,8 @@
 
 "http://vimdoc.sourceforge.net/htmldoc/help.html
 "normal - non recursive -map = nnoremap
-"}}}
 
-"Useful Key Bindings {{{
+"Useful Key Bindings {{{1
 "Lower Case Alphabets {{{
 "folding {{{
 " zm    fold all
@@ -47,11 +52,12 @@
 "s  -> source
 "/  -> disable search highlight
 "t  -> tab control
-"b  -> buffer control
-"}}}
 "}}}
 
+
+"Pathogen - leader{{{1
 execute pathogen#infect()
+":Helptags   to rebuild documentation
 
 let mapleader = ";"
 let maplocalleader = "\\"
@@ -60,7 +66,7 @@ noremap : <nop>
 inoremap jk <ESC>l
 set showcmd
 
-"Vim Basic {{{
+"Vim Basic {{{1
 "comment based file control. see bottom
 set nocompatible
 behave mswin
@@ -95,30 +101,26 @@ set expandtab
 
 "set list and set nolist to toggle
 set list
-set listchars=nbsp:¬,tab:»·,trail:·   
+set listchars=nbsp:¬,tab:»·,trail:·,extends:>
 
-"set guifont=Consolas:h14:cANSI
-"}}}
 
-"Quick File Edit Commands {{{
+"Quick File Edit Commands {{{1
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-"}}}
-"convenient shortcuts{{{
+"convenient shortcuts{{{1
 noremap <C-s> <ESC>:w<CR>
-"}}}
-"Movement changes {{{
+
+"Movement changes {{{1
 nnoremap j gj
 nnoremap k gk
 nnoremap $ g$
 nnoremap 0 g0
-"}}}
 
-"Searching  {{{
+"Searching  {{{1
 nnoremap <silent> <leader>/ :noh<cr>
 
-"Search related
+"Search related{{{2
 set ignorecase
 set smartcase
 set incsearch
@@ -126,24 +128,36 @@ set showmatch
 
 "Highlight search results. :noh to disable
 set hlsearch
-"}}}
-"Window Management {{{
+
+"Window Management {{{1
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
-"}}}
-"Buffers {{{
-nnoremap <leader>bd :bd<cr>
-nnoremap <leader>bb :CtrlPBuffer<cr>
-"}}}
-"tabs {{{
+
+"tabs {{{1
 nnoremap <leader>tj :tabNext<cr>
 nnoremap <leader>tk :tabprevious<cr>
 nnoremap <leader>td :tabclose<cr>
-"}}}
 
-"vim-airline {{{
+" tabular {{{1
+":Tab /char
+
+" vim-unimpaired {{{1
+" ]ou to turn it off
+set cursorcolumn "show crosshair on cursor
+"]on to disable
+set number      "show current line number in gutter
+
+" vim-surround {{{1
+"ysit [press char to surround]
+
+"emmet-vim {{{1
+
+"zeal-vim {{{1
+"
+
+"vim-airline {{{1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline_theme             = 'powerlineish'
 let g:airline_left_sep = ''
@@ -151,9 +165,7 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
-"}}}
-
-" Easy Motion Mappings {{{
+"vim-easymotion {{{1
 let g:EasyMotion_do_mapping = 1
 "nerdTree + following combo works good
     "<leader><leader> and
@@ -170,57 +182,51 @@ nmap <leader>j <plug>(easymotion-j)
 nmap <leader>k <plug>(easymotion-k)
 nmap f <plug>(easymotion-f)
 nmap F <plug>(easymotion-F)
-"}}}
 
-" vim-javascript {{{
+" vim-javascript {{{1
 let javascript_enable_domhtmlcss = 1
 let b:javascript_fold = 1
 let g:javascript_conceal = 1
 
-"}}}
 
-" NERDTRee {{{
+" NERDTRee {{{1
 nnoremap <C-d> :NERDTreeToggle<cr>
-"}}}
+"most of the time work is done in less files
+let NERDTreeIgnore = ['\.css$']
 
-"Ctrl-P {{{
+"Ctrl-P {{{1
 "<c-p> is mapped to :CtrlP
-"nnoremap <C-,> :CtrlPMRUFiles<cr>
-"}}}
+let g:ctrlp_cmd= 'CtrlPBuffer'
 
 
-" Save folds and what have you
+" Save folds and what have you{{{1
 autocmd BufWinLeave *.js mkview
 autocmd BufWinEnter *.js silent loadview
 
-"backup, undo, and swap directory {{{
+"backup, undo, and swap directory {{{1
 set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
-"}}}
 
-"Commented Out - Seems Promissing {{{
+"Commented Out - Seems Promissing {{{1
 "source $VIMRUNTIME/vimrc_example.vim
 "source $VIMRUNTIME/mswin.vim
-"}}}
 
-"POTENTIAL FUTURE COMMANDS {{{
+"POTENTIAL FUTURE COMMANDS {{{1
 ":au[tocmd][!] [group] {event} {pattern} [nested] {cmd}
 ":au FileType js nnoremap <buffer> <leader>cc :echo "commend js"<cr>
 "<buffer> causes the mapping to apply only to the buffer that passed {pattern}
 "put in to .vim/ftplguin/js.vim or vimfiles/ftplugin/js.vim
 
-"}}}
 
-"Help: Variables and  {{{
+"Help: Variables and  {{{1
 "let variable=value
 "set option=value
 "echo variable
 "echo &option
     "use case, you want to put the current font settings in to buffer
     ":put =&guifont
-"}}}
 
-"Chane any previously set settings based on the computer
-:source ~/.vim/computer.vim
+"Change any previously set settings based on the computer{{{1
+:source H:\vimfiles\computer.vim
 " vim:foldmethod=marker:foldlevel=0
