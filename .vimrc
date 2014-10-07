@@ -141,7 +141,9 @@ nnoremap <leader>tk :tabprevious<cr>
 nnoremap <leader>td :tabclose<cr>
 
 " tabular {{{1
-":Tab /char
+":Tab css_ruleset
+"css property has three fields  rule : value
+AddTabularPattern css_ruleset /:/r1c1l0
 
 " vim-unimpaired {{{1
 " ]ou to turn it off
