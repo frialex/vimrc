@@ -23,36 +23,35 @@ filetype plugin on
 
 "http://vimdoc.sourceforge.net/htmldoc/help.html
 "normal - non recursive -map = nnoremap
+"
+"text-object{{{2
+"vit => visual in tag
+"vat => visual around tag
 
 "Useful Key Bindings {{{1
-"Lower Case Alphabets {{{
-"folding {{{
+"Lower Case Alphabets {{{2
+"folding {{{3
 " zm    fold all
 " zo    open current
 " zc    close current
-"}}}
-"}}}
-"Capital Alphabets{{{
+"Capital Alphabets{{{3
 
 " K     Show help (execute keywordprg)
 
-"}}}
 
 ":map will show all custom key bindings
 ":help key will show build in key bindings
 
-"Show History{{{
+"Show History{{{1
 "ex commands    -> q:
 "search         -> q/
-"}}}
 
-"Used First Order Leader Keys {{{
+"Used First Order Leader Keys {{{1
 "usually followed by a second key
 "e  -> edit
 "s  -> source
 "/  -> disable search highlight
 "t  -> tab control
-"}}}
 
 
 "Pathogen - leader{{{1
@@ -143,7 +142,9 @@ nnoremap <leader>td :tabclose<cr>
 " tabular {{{1
 ":Tab css_ruleset
 "css property has three fields  rule : value
-AddTabularPattern css_ruleset /:/l1c1l0
+augroup cssindent
+ au BufRead *.less,*.css AddTabularPattern align /:/l0c1l0
+augroup END
 
 " vim-unimpaired {{{1
 " ]ou to turn it off
