@@ -10,9 +10,25 @@
 set guioptions-=T
 set guioptions-=m
 "set guifont=Consolas:h14:cANSI
+"
+let guifontpp_smaller_font_map="<F11>"
+let guifontpp_larger_font_map="<F12>"
 
 "Would the javascript plugin work with this?
 filetype plugin on
+
+"PowerShell {{{1
+"
+"to execute: V"ay,<c-r>a
+"set shell=powershell.exe\ -NoProfile\ -ExecutionPolicy\ Unrestricted
+"set shellcmdflag=-Command
+"Not sure about the two bellow
+"set shellpipe=>
+"set shellredir=>
+
+"run ex: read !$profile
+"this will run the command in powershell and output result into buffer!!
+
 
 "ReadME {{{1
 " Put cursor under a word and press K to bring up help for it
@@ -135,6 +151,7 @@ noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
 
 "tabs {{{1
+"gt and gT will also move back/forward in tab
 nnoremap <leader>tj :tabNext<cr>
 nnoremap <leader>tk :tabprevious<cr>
 nnoremap <leader>td :tabclose<cr>
@@ -167,6 +184,7 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+
 
 "vim-easymotion {{{1
 let g:EasyMotion_do_mapping = 1
