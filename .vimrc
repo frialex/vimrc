@@ -7,27 +7,27 @@
 "Pathogen
 "}}}
 
+"cd c:\dev-travelers\Excel Export
+"cd c:\Project Area\claimuilibrary\branches\w2k8aug15\Travelers.Claim.Export.Excel\
+cd C:\dev-source\closedxml\ClosedXML\ClosedXML\ClosedXML
+
 set guioptions-=T
 set guioptions-=m
-"set guifont=Consolas:h14:cANSI
-"
+"set guifont=Consolas:h12:cANSI
+"set guifont=Lucida_sans_typewriter:h12:cANSI
+set guifont=Lucida_sans_typewriter:h12:cANSI
+"set guifont=* "show the font selector dialog
+
 let guifontpp_smaller_font_map="<F11>"
 let guifontpp_larger_font_map="<F12>"
 
 "Would the javascript plugin work with this?
 filetype plugin on
 
-"PowerShell {{{1
-"
-"to execute: V"ay,<c-r>a
-"set shell=powershell.exe\ -NoProfile\ -ExecutionPolicy\ Unrestricted
-"set shellcmdflag=-Command
-"Not sure about the two bellow
-"set shellpipe=>
-"set shellredir=>
+"c:\Program Files (x86)\Vim\vimfiles\ftplugin\cs.vim
 
-"run ex: read !$profile
-"this will run the command in powershell and output result into buffer!!
+"Omnisharp{{{1
+source $vim\OmniSharp.vim
 
 
 "ReadME {{{1
@@ -44,13 +44,13 @@ filetype plugin on
 "vit => visual in tag
 "vat => visual around tag
 
-"Useful Key Bindings {{{1
-"Lower Case Alphabets {{{2
-"folding {{{3
+"Useful Key Bindings {{{2
+"Lower Case Alphabets {{{3
+"folding {{{4
 " zm    fold all
 " zo    open current
 " zc    close current
-"Capital Alphabets{{{3
+"Capital Alphabets{{{4
 
 " K     Show help (execute keywordprg)
 
@@ -58,16 +58,36 @@ filetype plugin on
 ":map will show all custom key bindings
 ":help key will show build in key bindings
 
-"Show History{{{1
+"Show History{{{2
 "ex commands    -> q:
 "search         -> q/
 
-"Used First Order Leader Keys {{{1
+"Used First Order Leader Keys {{{2
 "usually followed by a second key
 "e  -> edit
 "s  -> source
 "/  -> disable search highlight
 "t  -> tab control
+
+
+"PowerShell {{{2
+"
+"to execute: V"ay,<c-r>a
+"set shell='powershell.exe -NoProfile -ExecutionPolicy Unrestricted'
+"set shellcmdflag=-Command
+"Not sure about the two bellow
+"set shellpipe=>
+"set shellredir=>
+
+"IDEA: Write a light weight wrapper around PSHost. This wrapper should start
+"the host one time and store the reference in a way that it could get it back
+"after shutting down.
+"Then instead of executing powershell, which takes a long time to start up,
+"execute the light weight host. This host could also keep track of command
+"history and such..
+
+"run ex: read !$profile
+"this will run the command in powershell and output result into buffer!!
 
 
 "Pathogen - leader{{{1
@@ -119,20 +139,21 @@ set list
 set listchars=nbsp:¬,tab:»·,trail:·,extends:>
 
 
-"Quick File Edit Commands {{{1
+"KEY BINDINGS{{{1
+"Quick File Edit Commands {{{2
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-"convenient shortcuts{{{1
+"convenient shortcuts{{{2
 noremap <C-s> <ESC>:w<CR>
 
-"Movement changes {{{1
+"Movement changes {{{2
 nnoremap j gj
 nnoremap k gk
 nnoremap $ g$
 nnoremap 0 g0
 
-"Searching  {{{1
+"Searching  {{{2
 nnoremap <silent> <leader>/ :noh<cr>
 
 "Search related{{{2
@@ -144,16 +165,16 @@ set showmatch
 "Highlight search results. :noh to disable
 set hlsearch
 
-"Window Management {{{1
+"Window Management {{{2
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
 
-"tabs {{{1
+"tabs {{{2
 "gt and gT will also move back/forward in tab
-nnoremap <leader>tj :tabNext<cr>
-nnoremap <leader>tk :tabprevious<cr>
+nnoremap <leader>l :tabnext<cr>
+nnoremap <leader>h :tabprevious<cr>
 nnoremap <leader>td :tabclose<cr>
 
 " tabular {{{1
@@ -162,6 +183,11 @@ nnoremap <leader>td :tabclose<cr>
 augroup cssindent
  au BufRead *.less,*.css AddTabularPattern align /:/l0c1l0
 augroup END
+
+"Unite {{{1
+"nnoremap <c-p> :Unite -start-insert buffer jump<cr>
+"nnoremap <c-p> :Unite -start-insert buffer<cr>
+nnoremap <c-p> :Unite buffer<cr>
 
 " vim-unimpaired {{{1
 " ]ou to turn it off
@@ -201,8 +227,8 @@ let g:EasyMotion_smartcase  = 1
 
 nmap <leader>j <plug>(easymotion-j)
 nmap <leader>k <plug>(easymotion-k)
-nmap f <plug>(easymotion-f)
-nmap F <plug>(easymotion-F)
+nmap <leader>f <plug>(easymotion-f)
+nmap <leader>F <plug>(easymotion-F)
 
 " vim-javascript {{{1
 let javascript_enable_domhtmlcss = 1
@@ -225,9 +251,9 @@ autocmd BufWinLeave *.js mkview
 autocmd BufWinEnter *.js silent loadview
 
 "backup, undo, and swap directory {{{1
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
+set undodir=~/vim/undo//
+set backupdir=~/vim/backup//
+set directory=~/vim/swp//
 
 "Commented Out - Seems Promissing {{{1
 "source $VIMRUNTIME/vimrc_example.vim
@@ -249,5 +275,5 @@ set directory=~/.vim/.swp//
     ":put =&guifont
 
 "Change any previously set settings based on the computer{{{1
-:source H:\vimfiles\computer.vim
+":source H:\vimfiles\computer.vim
 " vim:foldmethod=marker:foldlevel=0
