@@ -1,0 +1,54 @@
+TODO: How can link to vim help be created? So Ctrl+] can be used
+to navigate
+
+
+"Help: Variables
+"let variable=value
+"set option=value
+"echo variable
+"echo &option
+    "use case, you want to put the current font settings in to buffer
+    ":put =&guifont
+
+"ReadME {{{1
+" Put cursor under a word and press K to bring up help for it
+    " if it doesn't work :setlocal keywordprg=:help
+"
+" :verbose map <C-d>   will show the command mapped to that key
+"
+
+"http://vimdoc.sourceforge.net/htmldoc/help.html
+"normal - non recursive -map = nnoremap
+"
+
+
+"text-object{{{2
+"vit => visual in tag
+"vat => visual around tag
+
+"Useful Key Bindings {{{1
+"Lower Case Alphabets {{{2
+"folding {{{3
+" zm    fold all
+" zo    open current
+" zc    close current
+"Capital Alphabets{{{3
+
+" K     Show help (execute keywordprg)
+
+
+":map will show all custom key bindings
+":help key will show build in key bindings
+
+"Show History{{{1
+"ex commands    -> q:
+"search         -> q/
+
+"Used First Order Leader Keys {{{1
+"usually followed by a second key
+"e  -> edit
+"s  -> source
+"/  -> disable search highlight
+"t  -> tab control
+
+
