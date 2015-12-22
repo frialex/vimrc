@@ -18,15 +18,15 @@ set guioptions-=m
 execute pathogen#infect()
 ":Helptags   to rebuild documentation
 
-source $VIM\vim-custom\font.vim
-source $VIM\vim-custom\options.vim
-source $VIM\vim-custom\change-defaults.vim
-source $VIM\vim-custom\vim-airline.vim
-source $VIM\vim-custom\vim-easymotion.vim
-source $VIM\vim-custom\vim-tabular.vim
-source $VIM\vim-custom\autocommands.vim
+source $VIM\vimrc\font.vim
+source $VIM\vimrc\options.vim
+source $VIM\vimrc\change-defaults.vim
+source $VIM\vimrc\vim-airline.vim
+source $VIM\vimrc\vim-easymotion.vim
+source $VIM\vimrc\vim-tabular.vim
+source $VIM\vimrc\autocommands.vim
 
-nnoremap <leader>ev :e $VIM\vim-custom\.vimrc<CR>
+nnoremap <leader>ev :e $VIM\vimrc\.vimrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 "convenient shortcuts
