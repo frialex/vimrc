@@ -1,4 +1,4 @@
-"Confused? Cursor over word, shift+k
+﻿"Confused? Cursor over word, shift+k
 "toggle keys provided thanks to vim-unimpaired
 
 set cursorcolumn "cou
@@ -52,6 +52,6 @@ set showmatch
 set hlsearch
 
 "backup, undo, and swap directory
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
+set undodir=$vim/tmp/undo//
+set backupdir=$vim/backup//
+set directory=$vim/swp//

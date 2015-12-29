@@ -18,13 +18,13 @@ set guioptions-=m
 execute pathogen#infect()
 ":Helptags   to rebuild documentation
 
-source $VIM\vimrc\font.vim
-source $VIM\vimrc\options.vim
-source $VIM\vimrc\change-defaults.vim
-source $VIM\vimrc\vim-airline.vim
-source $VIM\vimrc\vim-easymotion.vim
-source $VIM\vimrc\vim-tabular.vim
-source $VIM\vimrc\autocommands.vim
+source $VIM\vimrc_fri\font.vim
+source $VIM\vimrc_fri\options.vim
+source $VIM\vimrc_fri\change-defaults.vim
+source $VIM\vimrc_fri\vim-airline.vim
+source $VIM\vimrc_fri\vim-easymotion.vim
+source $VIM\vimrc_fri\vim-tabular.vim
+source $VIM\vimrc_fri\autocommands.vim
 
 nnoremap <leader>ev :e $VIM\vimrc\.vimrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -59,8 +59,5 @@ let javascript_enable_domhtmlcss = 1
 let b:javascript_fold = 1
 let g:javascript_conceal = 1
 
-"Seems Promissing
-"source $VIMRUNTIME/vimrc_example.vim
-"source $VIMRUNTIME/mswin.vim
 
 " vim:foldmethod=marker:foldlevel=0
